@@ -1,2 +1,8 @@
 ## NPM ##
 node_modules/
+
+## react bundle ##
+client/dist/bundle.js
+
+##api-key## 
+config.js 
