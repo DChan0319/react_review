@@ -8,7 +8,7 @@ class GameList extends React.Component{
 
   render(){
     return(
-      <div>
+      <div id="gList">
         {this.props.games.length > 0 ? 
           this.props.games.map((game) => {
             return <GameEntry game={game}/>

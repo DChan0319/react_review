@@ -7,9 +7,10 @@ class GameEntry extends React.Component{
 
   render(){
     return(
-      <div>
-        {this.props.game.game.name} viewers: {this.props.game.viewers} channels: {this.props.game.channels}
+      <div className="gameEntry">
+        {this.props.game.game.name} 
         <div><img src={this.props.game.game.box.medium}/></div>
+        viewers: {this.props.game.viewers} channels: {this.props.game.channels}
       </div>
     );
   }

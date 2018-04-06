@@ -1,0 +1,19 @@
+#navbar{
+  display: flex;
+  flex-direction: row;
+}
+
+div#gList{
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  /* align-items: flex-start; */
+}
+
+div.gameEntry{
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 300px;
+}

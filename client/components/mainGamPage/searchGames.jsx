@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Search extends React.Component{
+class SearchGame extends React.Component{
   constructor(props){
     super(props);
   };
@@ -8,11 +8,11 @@ class Search extends React.Component{
   render(){
     return(
       <div>
-        <input type="text" name="searchGame"/>
+        <input type="text" name="searchGame" placeholder="Game name..."/>
         <input type="submit" value="find"/>
       </div>
     );
   }
 };
 
-export default Search;
+export default SearchGame;

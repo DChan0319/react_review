@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import ReactDOM from 'react-dom';
-import Search from './mainGamPage/search';
+import Navbar from './mainGamPage/navbar'
 import GameList from './mainGamPage/gameList';
 
 //import LoginBox from loginbox.jsx;
@@ -22,13 +22,9 @@ class App extends React.Component{
   }// Puts top 10 games on page and the amount of viewers
 
   changeGames(games){
-    console.log("here", games);
-    console.log('this',this);
     this.setState({
       games: games,
     });
-
-    console.log("right here",this.state.games);
   }// change state of games
 
   fetchTopGamesApi(){
@@ -53,8 +49,12 @@ class App extends React.Component{
     return(
       <div>
         <h3>Twitch Searcher</h3>
-        <Search/>
-        <GameList games={this.state.games} load={this.state.loading}/>
+
+        <div>
+          <Navbar/>
+          <GameList games={this.state.games} load={this.state.loading}/>
+        </div>
+        
       </div>
     );
   }
