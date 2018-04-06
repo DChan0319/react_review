@@ -4,5 +4,5 @@ node_modules/
 ## react bundle ##
 client/dist/bundle.js
 
-##api-key## 
+##api-key info## 
 config.js 
