@@ -12,7 +12,8 @@ class App extends React.Component{
     super(props);
     this.state = {
       games: [],
-      loading: "Loading top Games..."
+      loading: "Loading top Games...",
+
     };
   }
 
@@ -39,19 +40,30 @@ class App extends React.Component{
         console.log('error',err);
       }
     });
-  }// fetch Top Games from Twitch api 
+  }// fetch Top Games from Twitch api (send get request to server)
+
+  searchForStreamer(streamerName){
+    console.log("inside searchforStreamer");
+    console.log(streamerName);
+  }//Send Post request to server
+
+  searchForGame(gameName){
+    console.log("inside SearchforGame");
+    console.log(gameName);
+  }
 
   dbFetchTopGames(){
 
   }//get top games from db
 
+  // searchForGame={this.searchForGame().bind(this)}
   render(){
     return(
       <div>
         <h3>Twitch Searcher</h3>
 
         <div>
-          <Navbar/>
+          <Navbar searchForStreamer={this.searchForStreamer} searchForGames={this.searchForGame}/>
           <GameList games={this.state.games} load={this.state.loading}/>
         </div>
         

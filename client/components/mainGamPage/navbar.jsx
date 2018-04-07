@@ -7,11 +7,13 @@ class Navbar extends React.Component{
     super(props);
   }
 
+  // ().bind(this)}
+
   render(){
     return(
       <div id="navbar"> 
-        <SearchStreamer/> 
-        <SearchGame/>
+        <SearchStreamer searchForStreamer={this.props.searchForStreamer}/> 
+        <SearchGame searchForGame={this.props.searchForGames}/>
       </div>
     );
   }
