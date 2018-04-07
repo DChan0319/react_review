@@ -7,8 +7,6 @@ class Navbar extends React.Component{
     super(props);
   }
 
-  // ().bind(this)}
-
   render(){
     return(
       <div id="navbar"> 

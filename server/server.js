@@ -3,7 +3,9 @@ import bodyParser from 'body-parser';
 import session from 'express-session';
 import path from 'path';
 import router from './router';
-import {getTop10Games as top10} from '../api/twitch';
+import{ getTop10Games as top10, 
+        streamerPostRequestforApi as streamerPost
+      } from '../api/twitch';
 // import request from 'request';
 
 //import db from '../db/index';
@@ -16,14 +18,18 @@ app.use('/tables', router);
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-
 app.get('/games', function(req, res){
   top10(function(result){
-    console.log('here');
     res.send(result);
   });
   
 }); 
+
+app.post('/streamer', function(req, res){
+  streamerPost(req.body.sName, function(result){
+    res.send(result);
+  });
+})
 
 
 

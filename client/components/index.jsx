@@ -13,7 +13,7 @@ class App extends React.Component{
     this.state = {
       games: [],
       loading: "Loading top Games...",
-
+      streamers: []
     };
   }
 
@@ -28,12 +28,32 @@ class App extends React.Component{
     });
   }// change state of games
 
+  addStreamer(streamer){
+    if(streamer.streams.length > 0){
+      console.log(streamer);
+      $.ajax({
+        url: 'http://localhost:1128/tables/streamers',
+        type: 'POST',
+        data: {streamer: streamer},
+        success: (data) => {
+          
+        },
+        error: (err) =>{
+          console.log(err);
+        }
+      })
+    }else{
+      alert("The streamer you searched for is not live");
+    }
+  }
+
   fetchTopGamesApi(){
     $.ajax({
       url: 'http://localhost:1128/games',
       type: 'GET',
       success: (data) => {
         console.log('Successful get!');
+        console.log(this)
         this.changeGames(data);
       },
       error: (err)=>{
@@ -43,8 +63,18 @@ class App extends React.Component{
   }// fetch Top Games from Twitch api (send get request to server)
 
   searchForStreamer(streamerName){
-    console.log("inside searchforStreamer");
-    console.log(streamerName);
+    var correctThis = this;
+    $.ajax({
+      url: 'http://localhost:1128/streamer',
+      type: 'POST',
+      data: {sName: streamerName},
+      success: (data) => {
+        this.addStreamer(data);
+      },
+      error: (err) => {
+        console.loge("err",err);
+      }
+    });
   }//Send Post request to server
 
   searchForGame(gameName){
@@ -60,11 +90,13 @@ class App extends React.Component{
   render(){
     return(
       <div>
-        <h3>Twitch Searcher</h3>
+        <h1>Twitch Searcher</h1>
 
         <div>
-          <Navbar searchForStreamer={this.searchForStreamer} searchForGames={this.searchForGame}/>
+          <Navbar searchForStreamer={this.searchForStreamer.bind(this)} searchForGames={this.searchForGame.bind(this)}/>
+          <h3> Top 5 Games </h3>
           <GameList games={this.state.games} load={this.state.loading}/>
+          {/* <StreamerList streamer={} */}
         </div>
         
       </div>
