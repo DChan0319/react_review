@@ -43,6 +43,17 @@ export function saveStreamer(data){
 
 }//Save to Database-->table/streamer
 
+export function getMyTop10Streamers(callback){
+  //query top 10 streamers from streamers
+  streamers.find().sort({viewers: -1}).limit(10).exec(function(err, s){
+    if(err){
+      console.log(err);
+    }else{
+      callback(s);
+    }
+  });
+}
+
 
 
 

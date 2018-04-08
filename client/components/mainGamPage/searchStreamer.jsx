@@ -23,7 +23,7 @@ class SearchStreamer extends React.Component{
       <div>
         <input id="streamerSearch" type="text" value={this.state.streamerName} name="searchStreamer" placeholder="Streamer name..." onChange={this.handleStreamerSearch.bind(this)}/>
 
-        <input id="streamerSearchButton" type="submit" value="Add Streamer" onClick={this.search.bind(this)} />
+        <input id="streamerSearchButton" type="submit" value="Add Live Streamer" onClick={this.search.bind(this)} />
       </div>
     );
   }

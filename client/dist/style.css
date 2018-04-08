@@ -3,17 +3,45 @@
   flex-direction: row;
 }
 
+#streamerSearch{
+  margin-left: 100px;
+}
+
+#gameSearch{
+  margin-left: 100px;
+}
+
+body{
+  background-color: #17141F;
+  color: white;
+}
+
 div#gList{
   display: flex; 
   flex-direction: row;
   flex-wrap: wrap;
   align-content: space-around;
-  /* align-items: flex-start; */
 }
 
 div.gameEntry{
   display: flex;
   flex-direction: column;
+  align-items: center;
   height: 300px;
   width: 300px;
+}
+
+div.streamerEntry{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 300px;
+  width: 300px;
+  margin-left: 100px;
+}
+
+div#sList{
+  display: flex; 
+  flex-direction: row;
+  flex-wrap: wrap;
 }

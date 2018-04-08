@@ -4,7 +4,8 @@ import session from 'express-session';
 import path from 'path';
 import router from './router';
 import{ getTop10Games as top10, 
-        streamerPostRequestforApi as streamerPost
+        streamerPostRequestforApi as streamerPost,
+        getStreamerForGame as game
       } from '../api/twitch';
 // import request from 'request';
 
@@ -18,20 +19,23 @@ app.use('/tables', router);
 
 app.use(express.static(__dirname + '/../client/dist'));
 
-app.get('/games', function(req, res){
+app.get('/topGames', function(req, res){
   top10(function(result){
     res.send(result);
   });
-  
 }); 
+
+app.post('/game', function (req, res){
+  game(req.body.game, function(data){
+    res.send(data);
+  });
+});
 
 app.post('/streamer', function(req, res){
   streamerPost(req.body.sName, function(result){
     res.send(result);
   });
-})
-
-
+});
 
 module.exports.app = app;
 

@@ -14,10 +14,16 @@ module.exports = {
 
   streamers:{
     get: function(req, res){
-
+      console.log("inside controller");
+      models.streamers.get(function(streamers){
+        res.send(streamers);
+      });
     },
     post: function(req, res){
-      models.streamers.post(req.body, function(){});
+      console.log(req.body);
+      models.streamers.post(req.body, function(){
+        res.send();
+      });
     }
   },
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class SearchGame extends React.Component{
   constructor(props){
@@ -21,7 +22,7 @@ class SearchGame extends React.Component{
   render(){
     return(
       <div>
-        <input type="text" name="searchGame" value={this.state.gameName} placeholder="Game name..." onChange={this.handleOnChangeGameSearch.bind(this)}/>
+        <input id="gameSearch" type="text" name="searchGame" value={this.state.gameName} placeholder="Game name..." onChange={this.handleOnChangeGameSearch.bind(this)}/>
         <input type="submit" value="find" onClick={this.search.bind(this)}/>
       </div>
     );
